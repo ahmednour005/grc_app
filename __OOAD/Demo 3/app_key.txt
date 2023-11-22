@@ -1,0 +1,5 @@
+//app key
+base64:+yVyLbFD4S2YCcRR5BywiKSVDi38qnJTx+SXlP3llT0=
+
+// serial
+3GC5-SB9Y-UBAZ-3Q2D

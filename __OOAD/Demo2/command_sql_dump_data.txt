@@ -1,0 +1,4 @@
+php artisan migrate:fresh --seed
+
+permission add and delete
+grc/public/images

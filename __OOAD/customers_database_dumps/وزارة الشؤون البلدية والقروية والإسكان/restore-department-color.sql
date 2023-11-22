@@ -1,0 +1,1 @@
+INSERT INTO `department_colors` (`id`, `name`, `value`) VALUES (NULL, 'test', '#46244C');

@@ -1,0 +1,390 @@
+{
+  "menu": [
+    {
+      "name": "Governance",
+      "badge": "3",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "home",
+      "submenu": [
+        {
+          "name": "Define Control Frameworks",
+          "icon": "circle",
+          "route": "admin.governance.index"
+        },
+        {
+          "name": "Document Program",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Define Exceptions",
+          "icon": "circle",
+          "route": ""
+        }
+      ]
+    },
+    {
+      "name": "Risk Management",
+      "badge": "5",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "alert-circle",
+      "submenu": [
+        {
+          "name": "Submit Risk",
+          "icon": "circle",
+          "route": "admin.risk_management.index"
+        },
+        {
+          "name": "Plan Mitigation",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Perform Reviews",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Plan Projects",
+          "icon": "circle",
+          "route": ""
+        },
+         {
+          "name": "Review Regularly",
+          "icon": "circle",
+          "route": ""
+        }
+      ]
+    },
+    {
+      "name": "Compliance",
+      "badge": "4",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "home",
+      "submenu": [
+        {
+          "name": "Define Tests",
+          "icon": "circle",
+          "route": "admin.compliance.test.index"
+        },
+        {
+          "name": "Initiate Audits",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Active Audits",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Past Audits",
+          "icon": "circle",
+          "route": ""
+        }
+      ]
+    },
+    {
+      "name": "Asset Management",
+      "badge": "3",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "home",
+      "submenu": [
+        {
+          "name": "Automated Discovery",
+          "icon": "circle",
+          "route": "admin.asset_management.automated_discovery"
+        },
+        {
+          "name": "ALLAssets",
+          "icon": "circle",
+          "route": "admin.asset_management.index"
+        },
+        {
+          "name": "Manage Asset Groups",
+          "icon": "circle",
+          "route": ""
+        }
+      ]
+    },
+    {
+      "name": "Assessments",
+      "badge": "10",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "home",
+      "submenu": [
+        {
+          "name": "Available Assessments",
+          "icon": "circle",
+          "route": "admin.assessment.index"
+        },
+        {
+          "name": "Pending Risks",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Assessment Contacts",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Questionnaire Questions",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Questionnaire Templates",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Questionnaires",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Questionnaire Results",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risk Analysis",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Import/Export",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Questionnaire Audit Trail",
+          "icon": "circle",
+          "route": ""
+        }
+      ]
+    },
+    {
+      "name": "Reporting",
+      "badge": "22",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "home",
+      "submenu": [
+        {
+          "name": "Overview",
+          "icon": "circle",
+          "route": "admin.reporting.index"
+        },
+        {
+          "name": "Risk Dashboard",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risk Appetite Report",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risk Trend",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Dynamic Risk Report",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Connectivity Visualizer",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risk Average Over Time",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Likelihood and Impact",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risk Advice",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risks and Assets",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risks and Controls",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "All Open Risks Assigned to Me",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "All Open Risks Needing a Review",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "All Open Risks by Team by Risk Level",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "High Risk Report",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Submitted Risks By Date",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Mitigations By Date",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Management Reviews By Date",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Closed Risks By Date",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Current Risk Comments",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Audit Timeline",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Control Gap Analysis",
+          "icon": "circle",
+          "route": ""
+        }
+      ]
+    },
+    {
+      "name": "Configure",
+      "badge": "19",
+      "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+      "icon": "settings",
+      "submenu": [
+        {
+          "name": "Settings",
+          "icon": "circle",
+          "route": "admin.configure.index"
+        },
+        {
+          "name": "Content",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Risk and Threat Catalog",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Configure Risk Formula",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Configure Review Settings",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Add and Remove Values",
+          "icon": "circle",
+          "route": "admin.configure.add_values"
+        },
+        {
+          "name": "Role Management",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "User Management",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Redefine Naming Conventions",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Asset Valuation",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Delete Risks",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Audit Trail",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Import/Export",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Active Assessments",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Extras",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Announcements",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Register & Upgrade",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "Health Check",
+          "icon": "circle",
+          "route": ""
+        },
+        {
+          "name": "About",
+          "icon": "circle",
+          "route": ""
+        }
+      ]
+    }
+  ]
+}

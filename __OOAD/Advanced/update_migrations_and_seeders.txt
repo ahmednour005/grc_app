@@ -1,0 +1,3 @@
+php artisan migrate --path=/database/migrations/2023_11_05_143043_update_framework_control_test_comments_table.php
+php artisan db:seed --class=AppendAndPermissionAndAction
+php artisan db:seed --class=ActionSeeder

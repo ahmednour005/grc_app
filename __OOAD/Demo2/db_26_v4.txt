@@ -1,0 +1,152 @@
+TRUNCATE TABLE assessment_answers;
+TRUNCATE TABLE assessment_answers_to_assets;
+TRUNCATE TABLE answer_sub_questions;
+TRUNCATE TABLE assessment_answers_to_asset_groups;
+
+DROP TABLE assessment_answers
+DROP TABLE assessment_answers_to_assets
+DROP TABLE answer_sub_questions
+DROP TABLE assessment_answers_to_asset_groups
+
+
+CREATE TABLE `assessment_answers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `assessment_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `sub_question_assessment_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `question_id` bigint(20) UNSIGNED NOT NULL,
+  `answer` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fail_control` tinyint(1) NOT NULL DEFAULT 0,
+  `maturity_control_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `submit_risk` tinyint(1) NOT NULL DEFAULT 0,
+  `risk_subject` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `risk_scoring_method_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `likelihood_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `impact_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `owner_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `assets_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`assets_ids`)),
+  `tags_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`tags_ids`)),
+  `framework_controls_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`framework_controls_ids`)),
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assessment_answers_to_assets`
+--
+
+CREATE TABLE `assessment_answers_to_assets` (
+  `assessment_answer_id` bigint(20) UNSIGNED NOT NULL,
+  `asset_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assessment_answers_to_asset_groups`
+--
+
+CREATE TABLE `assessment_answers_to_asset_groups` (
+  `assessment_answer_id` bigint(20) UNSIGNED NOT NULL,
+  `asset_group_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `answer_sub_questions`
+--
+ALTER TABLE `answer_sub_questions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `answer_sub_questions_answer_id_foreign` (`answer_id`),
+  ADD KEY `answer_sub_questions_question_id_foreign` (`question_id`);
+
+--
+-- Indexes for table `assessment_answers`
+--
+ALTER TABLE `assessment_answers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `assessment_answers_assessment_id_foreign` (`assessment_id`),
+  ADD KEY `assessment_answers_sub_question_assessment_id_foreign` (`sub_question_assessment_id`),
+  ADD KEY `assessment_answers_question_id_foreign` (`question_id`),
+  ADD KEY `assessment_answers_maturity_control_id_foreign` (`maturity_control_id`),
+  ADD KEY `assessment_answers_risk_scoring_method_id_foreign` (`risk_scoring_method_id`),
+  ADD KEY `assessment_answers_likelihood_id_foreign` (`likelihood_id`),
+  ADD KEY `assessment_answers_impact_id_foreign` (`impact_id`),
+  ADD KEY `assessment_answers_owner_id_foreign` (`owner_id`);
+
+--
+-- Indexes for table `assessment_answers_to_assets`
+--
+ALTER TABLE `assessment_answers_to_assets`
+  ADD UNIQUE KEY `assessment_answer_asset_unique` (`assessment_answer_id`,`asset_id`),
+  ADD KEY `assessment_answers_to_assets_asset_id_foreign` (`asset_id`);
+
+--
+-- Indexes for table `assessment_answers_to_asset_groups`
+--
+ALTER TABLE `assessment_answers_to_asset_groups`
+  ADD UNIQUE KEY `assessment_answer_asset_group_unique` (`assessment_answer_id`,`asset_group_id`),
+  ADD KEY `assessment_answers_to_asset_groups_asset_group_id_foreign` (`asset_group_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `answer_sub_questions`
+--
+ALTER TABLE `answer_sub_questions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `assessment_answers`
+--
+ALTER TABLE `assessment_answers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `answer_sub_questions`
+--
+ALTER TABLE `answer_sub_questions`
+  ADD CONSTRAINT `answer_sub_questions_answer_id_foreign` FOREIGN KEY (`answer_id`) REFERENCES `assessment_answers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `answer_sub_questions_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `assessment_questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `assessment_answers`
+--
+ALTER TABLE `assessment_answers`
+  ADD CONSTRAINT `assessment_answers_assessment_id_foreign` FOREIGN KEY (`assessment_id`) REFERENCES `assessments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `assessment_answers_impact_id_foreign` FOREIGN KEY (`impact_id`) REFERENCES `impacts` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `assessment_answers_likelihood_id_foreign` FOREIGN KEY (`likelihood_id`) REFERENCES `likelihoods` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `assessment_answers_maturity_control_id_foreign` FOREIGN KEY (`maturity_control_id`) REFERENCES `control_maturities` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `assessment_answers_owner_id_foreign` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `assessment_answers_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `assessment_questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `assessment_answers_risk_scoring_method_id_foreign` FOREIGN KEY (`risk_scoring_method_id`) REFERENCES `scoring_methods` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `assessment_answers_sub_question_assessment_id_foreign` FOREIGN KEY (`sub_question_assessment_id`) REFERENCES `assessments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `assessment_answers_to_assets`
+--
+ALTER TABLE `assessment_answers_to_assets`
+  ADD CONSTRAINT `assessment_answers_to_assets_assessment_answer_id_foreign` FOREIGN KEY (`assessment_answer_id`) REFERENCES `assessment_answers` (`id`),
+  ADD CONSTRAINT `assessment_answers_to_assets_asset_id_foreign` FOREIGN KEY (`asset_id`) REFERENCES `assets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `assessment_answers_to_asset_groups`
+--
+ALTER TABLE `assessment_answers_to_asset_groups`
+  ADD CONSTRAINT `assessment_answers_to_asset_groups_assessment_answer_id_foreign` FOREIGN KEY (`assessment_answer_id`) REFERENCES `assessment_answers` (`id`),
+  ADD CONSTRAINT `assessment_answers_to_asset_groups_asset_group_id_foreign` FOREIGN KEY (`asset_group_id`) REFERENCES `asset_groups` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,1 @@
+ALTER TABLE `assessment_answers` DROP FOREIGN KEY `assessment_answers_question_id_foreign`; ALTER TABLE `assessment_answers` ADD CONSTRAINT `assessment_answers_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
